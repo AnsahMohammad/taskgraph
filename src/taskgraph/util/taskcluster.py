@@ -68,7 +68,11 @@ def get_root_url(use_proxy):
 
     if PRODUCTION_TASKCLUSTER_ROOT_URL is None:
         raise RuntimeError(
-            "Could not detect Taskcluster instance, set $TASKCLUSTER_ROOT_URL"
+            "Error: Could not detect a Taskcluster instance. set $TASKCLUSTER_ROOT_URL.\n"
+            "Hint: You can set TASKCLUSTER_ROOT_URL to one of the following:\n"
+            "  - The root URL of your custom Taskcluster deployment\n"
+            "  - Firefox CI: https://firefox-ci-tc.services.mozilla.com\n"
+            "  - Community CI: https://community-tc.services.mozilla.com\n"
         )
 
     logger.debug("Using default TASKCLUSTER_ROOT_URL")
